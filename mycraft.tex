@@ -1,6 +1,6 @@
 \documentclass[compress]{beamer}%compress表示尽量压缩导航条
 %\usetheme{Berlin}
-\usepackage{thubeamer}
+\usepackage{xdubeamer}
 \usepackage{pgf}
 \usepackage[UTF8,noindent]{ctex}%取消首行缩进
 
@@ -18,23 +18,29 @@
 \let\@@magyar@captionfix\relax
 \makeatother
 %
+\graphicspath{{assets/}} % figures path
+\captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
 
-%bib reference
+\newcommand{\cpar}[2]{
+	\begin{center}
+		\fcolorbox{white}{#1!10}{\parbox{.9\linewidth}{#2}}
+		\end{center}
+	}
+
+
+%%%% 以上为模块内容 %%%%
+
+% 参考文献 
 \usepackage[backend=bibtex,style=ieee,sorting=none]{biblatex}
-\addbibresource{ref.bib}
+\addbibresource{myref.bib}
 \setbeamerfont{footnote}{size=\tiny}
 
 \begin{document}
-
-\graphicspath{{figures/}} % figures path
-\captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
-
-\title{基于XXX的XXX\\两相燃烧流场研究}
-\author[广末凉子]{学生：广末凉子\\ \vskip 5pt 导师：内田有纪}
-\institute[南京航空航天大学]{\small \vskip 38pt 南京航空航天大学}
+%% 封面
+\title{基于XXX的XXX}
+\author[马小白]{学生：马小白\\ \vskip 5pt 导师：马大黑}
+\institute[西安电子科技大学]{\small \vskip 38pt 西安电子科技大学}
 \date{\small \vskip -22pt \today}
-%\titlegraphic{\includegraphics{logo.pdf}}
-%\frame{
 \begin{frame}
 	\vspace{-10mm}
 		\maketitle
@@ -45,18 +51,12 @@
 		\end{center}
 	\end{figure}
 \end{frame}
+%% 目录
 \section*{目录}
 \begin{frame}
 	\frametitle{\secname}
 	\tableofcontents[sections={<1-5>}]
 \end{frame}
-  %\AtBeginSubsection[] {
-  %\frame<handout:0> {
-  %\frametitle{目录}
-  %\tableofcontents[current,currentsubsection,sections={<1-5>}]
-    %}
-    %\addtocounter{framenumber}{-1}  %目录页不计算页码
-  %}
   
 \AtBeginSection[] {%在每一节前面加入目录显示当前节的目录结构
 	\begin{frame}
@@ -66,11 +66,12 @@
 	\end{frame}
 }
 
-
+%%%% 正文开始 %%%%
 
 \section{研究背景}
 \begin{frame}
 	\frametitle{\secname~ }
+	\cpar{blue}{a}
 	\begin{block}{液体燃料燃烧}
 		液体燃料在工业与民航中有着广泛的应用。
 	\end{block}
