@@ -31,3 +31,7 @@
 *.pre
 *.snm
 *.vrb
+
+!logo.pdf
+mycraft.pdf
+*.synctex.gz
